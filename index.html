@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>26th Anniversary - Mummy & Papa ❤️</title>
+
+<link rel="stylesheet" href="styles.css">
+<script src="config.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<div class="music-control">
+    <button id="musicToggle" class="music-btn">🎵</button>
+
+    <audio id="bgMusic" loop>
+        <source src="assets/music/bg-music.mp3" type="audio/mp3">
+    </audio>
+</div>
+
+<!-- Background Hearts -->
+<div class="hearts-container"></div>
+
+<div class="container">
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <h1 class="main-title">
+        Happy 26th Anniversary ❤️
+    </h1>
+
+    <p class="subtitle" id="subtitle"></p>
+</header>
+
+
+<!-- ================= PARENTS SECTION ================= -->
+<section class="characters-section">
+
+<div class="character-container">
+
+<div class="character">
+<h3 id="partnerName">Papa ❤️</h3>
+<p>Strength & Happiness</p>
+</div>
+
+<div class="love-heart">❤️</div>
+
+<div class="character">
+<h3 id="yourName">Mummy 💕</h3>
+<p>Love & Support</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= SURPRISE LETTER ================= -->
+<section class="interaction-section">
+
+<button id="loveButton" class="love-btn">
+Click for a surprise 💝
+</button>
+
+<div id="loveNote" class="love-note">
+<p id="loveNoteText"></p>
+</div>
+
+</section>
+
+
+<!-- ================= MEMORIES TITLE ================= -->
+<section class="memory-gallery">
+
+<h2 class="section-title">
+💖 Khaas Aapke Liye 💖
+</h2>
+<section class="photo-menu">
+
+<h2 class="section-title">Our Beautiful Memories 📸</h2>
+
+<div class="memory-buttons">
+
+<button class="love-btn"
+onclick="showGallery('marriage')">
+💍 Marriage
+</button>
+
+<button class="love-btn"
+onclick="showGallery('mummy_papa')">
+❤️ Mummy & Papa
+</button>
+
+<button class="love-btn"
+onclick="showGallery('family')">
+👨‍👩‍👧 Family
+</button>
+
+<button class="love-btn"
+onclick="showGallery('anniversary')">
+🎉 25th Anniversary
+</button>
+
+</div>
+
+</section>
+
+
+<!-- Gallery Display -->
+<section id="gallerySection" class="gallery-section">
+
+<h2 id="galleryTitle"></h2>
+<div class="slideshow-container">
+    <img id="slideshowImage">
+</div>
+
+</section>
+
+<div class="memories-grid">
+
+<div class="memory-card">
+<div class="memory-icon">🌙</div>
+<h3>Life Lessons</h3>
+<p id="memoryLateNight"></p>
+</div>
+
+<div class="memory-card">
+<div class="memory-icon">✨</div>
+<h3>Beautiful Journey</h3>
+<p id="memoryFirstMeeting"></p>
+</div>
+
+<div class="memory-card">
+<div class="memory-icon">💕</div>
+<h3>Unconditional Care</h3>
+<p id="memoryCare"></p>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= SPECIAL MESSAGE ================= -->
+<section class="special-message">
+
+<div class="message-container">
+
+<h2 class="section-title">
+💌 Dil ki Kuch Baatein       
+</h2>
+
+<p id="specialMessage1"></p>
+<p id="specialMessage2"></p>
+
+<div class="signature" id="signature"></div>
+
+</div>
+
+</section>
+<!-- ================= VIDEO SECTION ================= -->
+<section class="video-gallery">
+
+<h2 class="section-title">
+🎥  Best Memory 
+</h2>
+
+<div class="memory-buttons">
+
+<button class="love-btn" onclick="openVideo('ENTRY_LINK')">
+✨ Entry
+</button>
+
+<button class="love-btn" onclick="openVideo('WELCOME_SPEECH_LINK')">
+🎤 Welcome Speech
+</button>
+
+<button class="love-btn" onclick="openVideo('WELCOME_PERFORMANCE_LINK')">
+💃 Welcome Performance
+</button>
+
+<button class="love-btn" onclick="openVideo('PARI_PERFORMANCE_LINK')">
+🌸 Pari Performance
+</button>
+
+<button class="love-btn" onclick="openVideo('RING_CEREMONY_LINK')">
+💍 Ring Ceremony
+</button>
+
+<button class="love-btn" onclick="openVideo('JOURNEY_LINK')">
+📖 26 Year Journey
+</button>
+
+<button class="love-btn" onclick="openVideo('SPECIAL_MOMENT_LINK')">
+❤️ Special Moment
+</button>
+
+</div>
+
+</section>
+<!-- ================= THANK YOU ================= -->
+<section class="thank-you">
+
+<h1 class="thank-you-title">
+✨ Thank You Mummy & Papa ✨
+</h1>
+
+<p class="thank-you-subtitle">
+For 26 beautiful years of love, strength and inspiration ❤️
+</p>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
