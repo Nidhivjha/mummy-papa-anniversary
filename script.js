@@ -59,60 +59,64 @@ for(let i=0;i<35;i++){
     petal.style.animationDelay = Math.random()*5 + "s";
 
     petalContainer.appendChild(petal);
-}  
+}  );
     /* ================= GALLERY FUNCTION ================= */
+loveButton.addEventListener("click", async () => {
+   ...
+});  // ← CLOSE BUTTON HERE
 
-    window.showGallery = function (type) {
+/* ================= GALLERY FUNCTION ================= */
 
-        clearInterval(slideshowInterval);
+window.showGallery = function (type) {
 
-        slideshowContainer.style.display = "flex";
+    clearInterval(slideshowInterval);
 
-        images = [];
-        currentIndex = 0;
-        imageElement.src = "";
+    slideshowContainer.style.display = "flex";
 
-        for (let i = 1; i <= 30; i++) {
+    images = [];
+    currentIndex = 0;
+    imageElement.src = "";
 
-            let path = `assets/photos/${type}/${type} (${i}).jpeg`;
+    for (let i = 1; i <= 30; i++) {
 
-            let img = new Image();
+        let path = `assets/photos/${type}/${type} (${i}).jpeg`;
 
-            img.onload = function () {
+        let img = new Image();
 
-                images.push(path);
+        img.onload = function () {
 
-                if (images.length === 1) {
-                    imageElement.src = path;
-                }
-            };
+            images.push(path);
 
-            img.src = path;
+            if (images.length === 1) {
+                imageElement.src = path;
+            }
+        };
+
+        img.src = path;
+    }
+
+    slideshowInterval = setInterval(() => {
+
+        if (images.length === 0) return;
+
+        currentIndex++;
+
+        if (currentIndex >= images.length) {
+            clearInterval(slideshowInterval);
+            setTimeout(() => {
+                imageElement.src = "";
+            }, 1000);
+            return;
         }
 
-        slideshowInterval = setInterval(() => {
+        imageElement.src = images[currentIndex];
 
-            if (images.length === 0) return;
+    }, 2000);
 
-            currentIndex++;
-
-            if (currentIndex >= images.length) {
-                clearInterval(slideshowInterval);
-                setTimeout(() => {
-                    imageElement.src = "";
-                }, 1000);
-                return;
-            }
-
-            imageElement.src = images[currentIndex];
-
-        }, 2000);
-
-        document.getElementById("gallerySection")
-            .scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-    };
-
-});
+    document.getElementById("gallerySection")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+};
+   
