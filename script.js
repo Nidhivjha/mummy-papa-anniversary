@@ -120,31 +120,38 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 /* ================= VIDEO FUNCTION ================= */
+});
+/* ================= GLOBAL VIDEO FUNCTION ================= */
 
-window.openVideo = function(link){
+function openVideo(link){
 
     const modal = document.getElementById("videoModal");
     const frame = document.getElementById("videoFrame");
 
-    if (!modal || !frame) return;
+    if(!modal || !frame){
+        console.log("Modal not found");
+        return;
+    }
 
-    // autoplay + mute for browser safety
     frame.src = link + "?autoplay=1&mute=1";
     modal.style.display = "flex";
 }
 
-/* CLOSE VIDEO */
+/* CLOSE BUTTON */
 
-const closeBtn = document.querySelector(".close-video");
+document.addEventListener("DOMContentLoaded", function(){
 
-if(closeBtn){
-    closeBtn.addEventListener("click", function(){
+    const closeBtn = document.querySelector(".close-video");
 
-        const modal = document.getElementById("videoModal");
-        const frame = document.getElementById("videoFrame");
+    if(closeBtn){
+        closeBtn.addEventListener("click", function(){
 
-        modal.style.display = "none";
-        frame.src = "";
-    });
-}
+            const modal = document.getElementById("videoModal");
+            const frame = document.getElementById("videoFrame");
+
+            modal.style.display = "none";
+            frame.src = "";
+        });
+    }
+
 });
