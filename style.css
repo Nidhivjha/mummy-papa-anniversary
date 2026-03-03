@@ -18,21 +18,21 @@ body {
 
   background: linear-gradient(
     135deg,
-    #ffe6f2,
-    #ffd1eb,
-    #f9e6ff
+    #2b0f3a,
+    #4b1248,
+    #5f0a87
   );
 
   background-attachment: fixed;
 
-  color: #333;
+  color: white;
   min-height: 100vh;
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 
   display: flex;
   justify-content: center;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -42,31 +42,60 @@ body {
 }
 .container {
   max-width: 1100px;
-  width: 95%;
-  margin: 70px auto;
+  width: 90%;
+  margin: 100px auto;
 
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.06);
 
   border-radius: 30px;
-  padding: 3rem;
+  padding: 60px;
+
+  backdrop-filter: blur(20px);
 
   box-shadow:
-    0 20px 60px rgba(255,105,180,0.25);
+    0 30px 80px rgba(0, 0, 0, 0.6);
 
   text-align: center;
+}
+.character-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin: 60px 0;
+}
 
-  backdrop-filter: blur(10px);
+.character {
+  background: rgba(255,255,255,0.15);
+  padding: 30px 50px;
+  border-radius: 20px;
+
+  box-shadow:
+    0 0 25px rgba(255, 0, 128, 0.4);
+
+  text-align: center;
+}
+
+.character h3 {
+  color: #ff4fa3;
+  font-size: 28px;
 }
 .title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3.5rem;
-  color: #ff4f9a;
-  text-shadow: 0 5px 20px rgba(255,105,180,0.4);
+  font-family: 'Great Vibes', cursive;
+  font-size: 70px;
+  color: #ff4fa3;
+
+  text-shadow:
+    0 0 10px #ff4fa3,
+    0 0 20px #ff4fa3,
+    0 0 40px #ff007f;
+
+  margin-bottom: 20px;
 }
 .subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: var(--accent-color);
+ font-size: 24px;
+  color: #ff7bbf;
+  letter-spacing: 2px;
 }
 
 .message {
@@ -176,14 +205,10 @@ body {
 
 /* Memory card */
 .memory-card {
-  background-color: #f8e8f2;
-  padding: 1.5rem;
-  border-radius: 15px;
-  margin: 1.5rem 0;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  border-left: 5px solid var(--primary-color);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-left: 5px solid #ff4fa3;
 }
-
 /* Game styles */
 #game-container {
   width: 100%;
