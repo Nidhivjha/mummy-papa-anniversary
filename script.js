@@ -122,36 +122,37 @@ document.addEventListener("DOMContentLoaded", function () {
 /* ================= VIDEO FUNCTION ================= */
 });
 /* ================= GLOBAL VIDEO FUNCTION ================= */
+/* ================= VIDEO BUTTON HANDLER ================= */
 
-function openVideo(link){
+const videoButtons = document.querySelectorAll(".video-btn");
+const modal = document.getElementById("videoModal");
+const frame = document.getElementById("videoFrame");
+const closeBtn = document.querySelector(".close-video");
 
-    const modal = document.getElementById("videoModal");
-    const frame = document.getElementById("videoFrame");
+videoButtons.forEach(button => {
+    button.addEventListener("click", function(){
 
-    if(!modal || !frame){
-        console.log("Modal not found");
-        return;
-    }
+        const link = this.getAttribute("data-video");
 
-    frame.src = link + "?autoplay=1";
-    modal.classList.add("active");
+        if(!link) return;
+
+        // Pause background music
+        if(bgMusic){
+            bgMusic.pause();
+            musicToggle.textContent = "🎵";
+            isPlaying = false;
+        }
+
+        frame.src = link + "?autoplay=1&rel=0";
+        modal.classList.add("active");
+    });
+});
+
+if(closeBtn){
+    closeBtn.addEventListener("click", function(){
+        modal.classList.remove("active");
+        frame.src = "";
+    });
 }
-
-/* CLOSE BUTTON */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    const closeBtn = document.querySelector(".close-video");
-
-    if(closeBtn){
-        closeBtn.addEventListener("click", function(){
-
-            const modal = document.getElementById("videoModal");
-            const frame = document.getElementById("videoFrame");
-
-            modal.classList.remove("active");
-            frame.src = "";
-        });
-    }
 
 });
