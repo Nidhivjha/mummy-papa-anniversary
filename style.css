@@ -133,12 +133,22 @@ body {
   color: #ff7bbf;
   letter-spacing: 2px;
 }
+/* Surprise Message Hidden Initially */
 .love-note {
   display: none;
-  margin-top: 30px;
+  margin-top: 40px;
   font-size: 18px;
   line-height: 1.8;
   color: white;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* When Visible */
+.love-note.visible {
+  display: block;
+  animation: fadeIn 0.6s ease-in-out;
 }
 .message {
   font-size: 1.2rem;
