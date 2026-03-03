@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const imageElement = document.getElementById("slideshowImage");
     const slideshowContainer = document.querySelector(".slideshow-container");
 
+    const videoButtons = document.querySelectorAll(".video-btn");
+    const modal = document.getElementById("videoModal");
+    const frame = document.getElementById("videoFrame");
+    const closeBtn = document.querySelector(".close-video");
+
     let isPlaying = false;
     let slideshowInterval = null;
     let images = [];
@@ -40,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 musicToggle.textContent = "🔊";
             } catch (e) {}
 
-            // Remove old petals
             const existing = document.querySelector(".petal-container");
             if (existing) existing.remove();
 
@@ -61,8 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 petalContainer.appendChild(petal);
             }
-
-        });  // ✅ CLOSE BUTTON HERE
+        });
     }
 
     /* ================= GALLERY FUNCTION ================= */
@@ -119,40 +122,33 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     };
 
-/* ================= VIDEO FUNCTION ================= */
-});
-/* ================= GLOBAL VIDEO FUNCTION ================= */
-/* ================= VIDEO BUTTON HANDLER ================= */
+    /* ================= VIDEO BUTTONS ================= */
 
-const videoButtons = document.querySelectorAll(".video-btn");
-const modal = document.getElementById("videoModal");
-const frame = document.getElementById("videoFrame");
-const closeBtn = document.querySelector(".close-video");
+    videoButtons.forEach(button => {
+        button.addEventListener("click", function(){
 
-videoButtons.forEach(button => {
-    button.addEventListener("click", function(){
+            const link = this.getAttribute("data-video");
+            if(!link) return;
 
-        const link = this.getAttribute("data-video");
+            // Pause background music
+            if(bgMusic){
+                bgMusic.pause();
+                musicToggle.textContent = "🎵";
+                isPlaying = false;
+            }
 
-        if(!link) return;
-
-        // Pause background music
-        if(bgMusic){
-            bgMusic.pause();
-            musicToggle.textContent = "🎵";
-            isPlaying = false;
-        }
-
-        frame.src = link + "?autoplay=1&rel=0";
-        modal.classList.add("active");
+            frame.src = link + "?autoplay=1&rel=0";
+            modal.classList.add("active");
+        });
     });
-});
 
-if(closeBtn){
-    closeBtn.addEventListener("click", function(){
-        modal.classList.remove("active");
-        frame.src = "";
-    });
-}
+    /* ================= CLOSE VIDEO ================= */
+
+    if(closeBtn){
+        closeBtn.addEventListener("click", function(){
+            modal.classList.remove("active");
+            frame.src = "";
+        });
+    }
 
 });
