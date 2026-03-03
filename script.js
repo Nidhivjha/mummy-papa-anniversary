@@ -1,5 +1,6 @@
 // Anniversary Website Script ❤️
 document.addEventListener("DOMContentLoaded", function () {
+    if(!loveButton) return;
     /* AUTO HEART GENERATOR */
 const heartsContainer = document.querySelector(".hearts-container");
 
@@ -19,7 +20,8 @@ for(let i=0;i<6;i++){
     const loveButton = document.getElementById("loveButton");
     const loveNote = document.getElementById("loveNote");
     const imageElement = document.getElementById("slideshowImage");
-    
+    document.querySelector(".slideshow-container").style.display = "flex";
+
 
     let isPlaying = false;
     let slideshowInterval = null;
@@ -120,8 +122,7 @@ for(let i=0;i<6;i++){
 window.showGallery = function(type){
 
     clearInterval(slideshowInterval);
-    document.querySelector(".slideshow-container").style.display = "flex";
-
+   
     images = [];
     currentIndex = 0;
 
