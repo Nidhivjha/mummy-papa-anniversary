@@ -1,11 +1,26 @@
 // Anniversary Website Script ❤️
 document.addEventListener("DOMContentLoaded", function () {
+    /* AUTO HEART GENERATOR */
+const heartsContainer = document.querySelector(".hearts-container");
 
+for(let i=0;i<6;i++){
+  let heart = document.createElement("div");
+  heart.classList.add("heart");
+
+  heart.style.left = Math.random()*90 + "%";
+  heart.style.top = Math.random()*80 + "px";
+
+  heart.style.animationDelay = (Math.random()*2)+"s";
+
+  heartsContainer.appendChild(heart);
+}
     const bgMusic = document.getElementById("bgMusic");
     const musicToggle = document.getElementById("musicToggle");
     const loveButton = document.getElementById("loveButton");
     const loveNote = document.getElementById("loveNote");
     const imageElement = document.getElementById("slideshowImage");
+    document.querySelector(".slideshow-container").style.display = "flex";
+    
 
     let isPlaying = false;
     let slideshowInterval = null;
@@ -62,22 +77,24 @@ document.addEventListener("DOMContentLoaded", function () {
         isPlaying = !isPlaying;
     });
 
-    /* =============================
-       SURPRISE BUTTON
-    ==============================*/
-    loveButton.addEventListener("click", () => {
+    
 
-        loveNote.classList.toggle("visible");
-
-        if (!isPlaying) {
-            bgMusic.play();
-            musicToggle.textContent = "🔊";
-            isPlaying = true;
-        }
-    });
 /* =============================
    PERFECT ONE-TIME SLIDESHOW
 ==============================*/
+    loveButton.addEventListener("click", async () => {
+
+  loveNote.classList.toggle("visible");
+
+  try{
+    await bgMusic.play();
+    musicToggle.textContent="🔊";
+    isPlaying=true;
+  }catch(e){
+    console.log("Music blocked");
+  }
+
+});
 
 window.showGallery = function(type){
 
