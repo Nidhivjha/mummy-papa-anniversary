@@ -295,3 +295,32 @@ section{
   margin-top:15px;
   color:#ffb6e0;
 }
+/* ================= FULL SCREEN FALLING ROSES ================= */
+
+.rose-container{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:-1;
+}
+
+.rose{
+  position:absolute;
+  font-size:28px;
+  animation:fallRose linear infinite;
+}
+
+@keyframes fallRose{
+  0%{
+    transform:translateY(-10vh) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0.8;
+  }
+}
