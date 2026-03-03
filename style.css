@@ -25,6 +25,11 @@ body{
   background-attachment:fixed;
   color:white;
   min-height:100vh;
+}
+
+  background-attachment:fixed;
+  color:white;
+  min-height:100vh;
 
   display:flex;
   justify-content:center;
@@ -77,32 +82,7 @@ body{
 }
 /* FULL SCREEN HEARTS */
 
-.full-hearts{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  z-index:-1;
-}
 
-.full-hearts span{
-  position:absolute;
-  font-size:25px;
-  animation:floatHeart 6s linear infinite;
-}
-
-@keyframes floatHeart{
-  0%{
-    transform:translateY(100vh) scale(1);
-    opacity:1;
-  }
-  100%{
-    transform:translateY(-10vh) scale(1.5);
-    opacity:0;
-  }
-}
 /* ================= DOUBLE LAYER BOX STYLE ================= */
 
 .character,
@@ -297,16 +277,7 @@ section{
 }
 /* ================= FULL SCREEN FALLING ROSES ================= */
 
-.rose-container{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  overflow:hidden;
-  z-index:-1;
-}
+
 /* ================= FULL SCREEN FALLING ROSES ================= */
 
 .rose-container{
@@ -344,8 +315,5 @@ section{
     transform:translateY(110vh) translateX(-15px) rotate(360deg);
     opacity:0.9;
   }
-}
-section:not(:first-child){
-  margin-top:120px;
 }
 
