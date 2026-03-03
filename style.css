@@ -15,13 +15,22 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--background-color);
+
+  background: linear-gradient(
+    135deg,
+    #ffe6f0,
+    #ffd6ec,
+    #f9f3ff
+  );
+
   color: var(--text-color);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
-}
 
+  display: flex;
+  justify-content: center;
+}
 body {
   display: flex;
   justify-content: center;
@@ -43,14 +52,13 @@ body {
 .container {
   max-width: 1100px;
   width: 95%;
-  margin: 40px auto;
-  background-color: var(--light-color);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 60px auto;
+  background: white;
+  border-radius: 25px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 40px rgba(255, 105, 180, 0.2);
   text-align: center;
 }
-
 .title {
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
