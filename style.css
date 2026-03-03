@@ -303,20 +303,21 @@ section{
   }
 }
 .video-modal{
-  display:none;
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.85);
-  backdrop-filter:blur(6px);
+  inset:0;
+  display:none;              /* hidden initially */
   justify-content:center;
   align-items:center;
-  z-index:10000;
+  background:rgba(0,0,0,0.9);
+  z-index:20000;             /* ABOVE petals */
+}
+
+.video-modal.active{
+  display:flex;              /* use class instead of inline */
 }
 
 .video-content{
+  position:relative;
   width:90%;
   max-width:900px;
 }
@@ -327,4 +328,11 @@ section{
   border-radius:20px;
 }
 
-
+.close-video{
+  position:absolute;
+  top:-45px;
+  right:0;
+  font-size:40px;
+  color:white;
+  cursor:pointer;
+}
