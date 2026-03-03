@@ -129,19 +129,10 @@ body{
   line-height:1.7;
 }
 /* SECTION SEPARATION LIKE SLIDES */
+
 section{
-  margin:90px 0;
-  padding:50px;
-  border-radius:35px;
-
-  background:rgba(255,255,255,0.04);
-  backdrop-filter:blur(8px);
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  margin:120px 0;
 }
-
 .character h3,
 .memory-card h3{
   color:#ff007f;
