@@ -150,6 +150,10 @@ body {
   display: block;
   animation: fadeIn 0.6s ease-in-out;
 }
+.love-note p {
+  text-align: center;
+  padding: 10px 0;
+}
 .message {
   font-size: 1.2rem;
   margin: 1.5rem 0;
