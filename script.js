@@ -119,4 +119,32 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     };
 
+/* ================= VIDEO FUNCTION ================= */
+
+window.openVideo = function(link){
+
+    const modal = document.getElementById("videoModal");
+    const frame = document.getElementById("videoFrame");
+
+    if (!modal || !frame) return;
+
+    // autoplay + mute for browser safety
+    frame.src = link + "?autoplay=1&mute=1";
+    modal.style.display = "flex";
+}
+
+/* CLOSE VIDEO */
+
+const closeBtn = document.querySelector(".close-video");
+
+if(closeBtn){
+    closeBtn.addEventListener("click", function(){
+
+        const modal = document.getElementById("videoModal");
+        const frame = document.getElementById("videoFrame");
+
+        modal.style.display = "none";
+        frame.src = "";
+    });
+}
 });
