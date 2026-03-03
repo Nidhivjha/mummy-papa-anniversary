@@ -129,10 +129,19 @@ body{
   line-height:1.7;
 }
 /* SECTION SEPARATION LIKE SLIDES */
-
 section{
-  margin:80px 0;
+  margin:90px 0;
+  padding:50px;
+  border-radius:35px;
+
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(8px);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
 }
+
 .character h3,
 .memory-card h3{
   color:#ff007f;
@@ -307,20 +316,45 @@ section{
   overflow:hidden;
   z-index:-1;
 }
+/* ================= FULL SCREEN FALLING ROSES ================= */
+
+.rose-container{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:9999;
+}
 
 .rose{
   position:absolute;
-  font-size:28px;
+  top:-50px;   /* start above screen */
   animation:fallRose linear infinite;
 }
 
 @keyframes fallRose{
   0%{
-    transform:translateY(-10vh) rotate(0deg);
+    transform:translateY(0) translateX(0) rotate(0deg);
     opacity:1;
   }
+  25%{
+    transform:translateY(25vh) translateX(20px) rotate(90deg);
+  }
+  50%{
+    transform:translateY(50vh) translateX(-20px) rotate(180deg);
+  }
+  75%{
+    transform:translateY(75vh) translateX(15px) rotate(270deg);
+  }
   100%{
-    transform:translateY(110vh) rotate(360deg);
-    opacity:0.8;
+    transform:translateY(110vh) translateX(-15px) rotate(360deg);
+    opacity:0.9;
   }
 }
+section:not(:first-child){
+  margin-top:120px;
+}
+
