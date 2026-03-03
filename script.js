@@ -38,28 +38,27 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (e) {}
 
         // Remove old petals
-        const existing = document.querySelector(".petal-container");
-        if (existing) existing.remove();
+       // Remove old petals
+const existing = document.querySelector(".petal-container");
+if (existing) existing.remove();
 
-        const petalContainer = document.createElement("div");
-        petalContainer.classList.add("petal-container");
-        document.body.appendChild(petalContainer);
+const petalContainer = document.createElement("div");
+petalContainer.classList.add("petal-container");
+document.body.appendChild(petalContainer);
 
-        for (let i = 0; i < 60; i++) {
+for (let i = 0; i < 15; i++) {   // less petals
 
-            let petal = document.createElement("div");
-            petal.classList.add("petal");
-            petal.innerHTML = "🌸";
+    let petal = document.createElement("img");
+    petal.src = "assets/image.png";   // <-- updated filename
+    petal.classList.add("petal");
 
-            petal.style.left = Math.random() * 100 + "%";
-            petal.style.fontSize = (15 + Math.random() * 25) + "px";
-            petal.style.animationDuration = (6 + Math.random() * 6) + "s";
-            petal.style.animationDelay = Math.random() * 5 + "s";
+    petal.style.left = Math.random() * 100 + "%";
+    petal.style.width = (12 + Math.random() * 10) + "px";  // VERY SMALL
+    petal.style.animationDuration = (8 + Math.random() * 5) + "s";
+    petal.style.animationDelay = Math.random() * 5 + "s";
 
-            petalContainer.appendChild(petal);
-        }
-    });
-
+    petalContainer.appendChild(petal);
+}
     /* ================= GALLERY FUNCTION ================= */
 
     window.showGallery = function (type) {
