@@ -1,6 +1,6 @@
 // Anniversary Website Script ❤️
 document.addEventListener("DOMContentLoaded", function () {
-    if(!loveButton) return;
+
     /* AUTO HEART GENERATOR */
 const heartsContainer = document.querySelector(".hearts-container");
 
@@ -130,7 +130,7 @@ window.showGallery = function(type){
     imageElement.src = "";
 
     // preload images
-    for (let i = 1; i <= 50; i++) {
+    for (let i = 1; i <= 30; i++) {
 
         let path =
         `assets/photos/${type}/${type} (${i}).jpeg`;
