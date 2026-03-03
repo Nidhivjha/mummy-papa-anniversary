@@ -1,72 +1,20 @@
 // Anniversary Website Script ❤️
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* AUTO HEART GENERATOR */
-const heartsContainer = document.querySelector(".hearts-container");
-
-for(let i=0;i<6;i++){
-  let heart = document.createElement("div");
-  heart.classList.add("heart");
-
-  heart.style.left = Math.random()*90 + "%";
-  heart.style.top = Math.random()*80 + "px";
-
-  heart.style.animationDelay = (Math.random()*2)+"s";
-
-  heartsContainer.appendChild(heart);
-}
     const bgMusic = document.getElementById("bgMusic");
     const musicToggle = document.getElementById("musicToggle");
     const loveButton = document.getElementById("loveButton");
     const loveNote = document.getElementById("loveNote");
     const imageElement = document.getElementById("slideshowImage");
-    document.querySelector(".slideshow-container").style.display = "flex";
-
+    const slideshowContainer = document.querySelector(".slideshow-container");
 
     let isPlaying = false;
     let slideshowInterval = null;
     let images = [];
     let currentIndex = 0;
 
-    /* =============================
-       APPLY CONFIG DATA
-    ==============================*/
-    if (window.CONFIG) {
+    /* ================= MUSIC CONTROL ================= */
 
-        document.getElementById("subtitle").textContent =
-            CONFIG.messages.subtitle;
-
-        document.getElementById("partnerName").textContent =
-            CONFIG.partnerName;
-
-        document.getElementById("yourName").textContent =
-            CONFIG.yourName;
-
-        document.getElementById("loveNoteText").textContent =
-            CONFIG.messages.loveNote;
-
-        document.getElementById("memoryLateNight").textContent =
-            CONFIG.memories.lateNight;
-
-        document.getElementById("memoryFirstMeeting").textContent =
-            CONFIG.memories.firstMeeting;
-
-        document.getElementById("memoryCare").textContent =
-            CONFIG.memories.care;
-
-        document.getElementById("specialMessage1").textContent =
-            CONFIG.messages.specialMessage;
-
-        document.getElementById("specialMessage2").textContent =
-            CONFIG.messages.specialMessage2;
-
-        document.getElementById("signature").textContent =
-            CONFIG.messages.signature;
-    }
-
-    /* =============================
-       MUSIC CONTROL
-    ==============================*/
     musicToggle.addEventListener("click", () => {
         if (isPlaying) {
             bgMusic.pause();
@@ -78,106 +26,95 @@ for(let i=0;i<6;i++){
         isPlaying = !isPlaying;
     });
 
-    
+    /* ================= SURPRISE BUTTON ================= */
 
-/* =============================
-   PERFECT ONE-TIME SLIDESHOW
-==============================*/
-  loveButton.addEventListener("click", async () => {
+    loveButton.addEventListener("click", async () => {
 
-    loveNote.classList.toggle("visible");
+        loveNote.classList.toggle("visible");
 
-    try{
-        await bgMusic.play();
-        isPlaying = true;
-        musicToggle.textContent="🔊";
-    }catch(e){}
+        try {
+            await bgMusic.play();
+            isPlaying = true;
+            musicToggle.textContent = "🔊";
+        } catch (e) {}
 
-    // Remove old roses if already present
-    const old = document.querySelector(".rose-container");
-    if(old) old.remove();
+        // Remove old roses
+        const existing = document.querySelector(".rose-container");
+        if (existing) existing.remove();
 
-    // Create new rose container
- // Remove old roses
-const old = document.querySelector(".rose-container");
-if(old) old.remove();
+        const roseContainer = document.createElement("div");
+        roseContainer.classList.add("rose-container");
+        document.body.appendChild(roseContainer);
 
-const roseContainer = document.createElement("div");
-roseContainer.classList.add("rose-container");
-document.body.appendChild(roseContainer);
+        for (let i = 0; i < 40; i++) {
 
-for(let i=0;i<60;i++){   // increase count
+            let rose = document.createElement("div");
+            rose.classList.add("rose");
+            rose.innerHTML = "🌹";
 
-    let rose = document.createElement("div");
-    rose.classList.add("rose");
-    rose.innerHTML="🌹";
+            rose.style.left = Math.random() * 100 + "%";
+            rose.style.fontSize = (20 + Math.random() * 20) + "px";
+            rose.style.animationDuration = (6 + Math.random() * 6) + "s";
+            rose.style.animationDelay = Math.random() * 5 + "s";
 
-    rose.style.left = Math.random()*100 + "%";
-    rose.style.fontSize = (20 + Math.random()*25) + "px";
-    rose.style.animationDuration = (6 + Math.random()*6) + "s";
-    rose.style.animationDelay = Math.random()*5 + "s";
-
-    roseContainer.appendChild(rose);
-}
-
-window.showGallery = function(type){
-
-    clearInterval(slideshowInterval);
-   
-    images = [];
-    currentIndex = 0;
-
-    imageElement.src = "";
-
-    // preload images
-    for (let i = 1; i <= 30; i++) {
-
-        let path =
-        `assets/photos/${type}/${type} (${i}).jpeg`;
-
-        let img = new Image();
-
-        img.onload = function () {
-
-            images.push(path);
-
-            // show first image
-            if (images.length === 1) {
-                imageElement.src = path;
-            }
-        };
-
-        img.src = path;
-    }
-
-    slideshowInterval = setInterval(() => {
-
-        if (images.length === 0) return;
-
-        currentIndex++;
-
-        // ✅ STOP after last image
-        if (currentIndex >= images.length) {
-
-            clearInterval(slideshowInterval);
-
-            setTimeout(()=>{
-                imageElement.src = "";
-            },1000);
-
-            return;
+            roseContainer.appendChild(rose);
         }
 
-        imageElement.src =
-            images[currentIndex];
+    });
 
-    }, 2000); // 2 sec per photo
+    /* ================= GALLERY FUNCTION ================= */
 
+    window.showGallery = function (type) {
 
-    document.getElementById("gallerySection")
-        .scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-};
+        clearInterval(slideshowInterval);
+
+        slideshowContainer.style.display = "flex";
+
+        images = [];
+        currentIndex = 0;
+        imageElement.src = "";
+
+        for (let i = 1; i <= 30; i++) {
+
+            let path = `assets/photos/${type}/${type} (${i}).jpeg`;
+
+            let img = new Image();
+
+            img.onload = function () {
+
+                images.push(path);
+
+                if (images.length === 1) {
+                    imageElement.src = path;
+                }
+            };
+
+            img.src = path;
+        }
+
+        slideshowInterval = setInterval(() => {
+
+            if (images.length === 0) return;
+
+            currentIndex++;
+
+            if (currentIndex >= images.length) {
+                clearInterval(slideshowInterval);
+                setTimeout(() => {
+                    imageElement.src = "";
+                }, 1000);
+                return;
+            }
+
+            imageElement.src = images[currentIndex];
+
+        }, 2000);
+
+        document.getElementById("gallerySection")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+    };
+
 });
