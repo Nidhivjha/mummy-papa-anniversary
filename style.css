@@ -64,22 +64,63 @@ body {
   gap: 60px;
   margin: 60px 0;
 }
-
 .character {
-  background: rgba(255,255,255,0.15);
-  padding: 30px 50px;
-  border-radius: 20px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 0, 128, 0.15),
+    rgba(255, 0, 128, 0.05)
+  );
+
+  padding: 35px 60px;
+  border-radius: 25px;
 
   box-shadow:
-    0 0 25px rgba(255, 0, 128, 0.4);
+    0 0 20px rgba(255, 0, 128, 0.4),
+    inset 0 0 15px rgba(255, 0, 128, 0.2);
 
-  text-align: center;
+  backdrop-filter: blur(10px);
+
+  color: white;
 }
-
 .character h3 {
   color: #ff4fa3;
-  font-size: 28px;
+  font-size: 30px;
 }
+/* ===== CLICK FOR SURPRISE BUTTON ===== */
+
+.love-btn {
+  background: linear-gradient(
+    135deg,
+    #ff5fa2,
+    #ff007f
+  );
+
+  padding: 20px 70px;
+  border-radius: 60px;
+
+  font-size: 22px;
+  font-weight: 600;
+
+  border: none;
+  cursor: pointer;
+
+  color: white;
+
+  box-shadow:
+    0 0 25px rgba(255, 0, 128, 0.7);
+
+  transition: all 0.3s ease;
+
+  margin-top: 40px;
+}
+
+.love-btn:hover {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 45px rgba(255, 0, 128, 1);
+}
+
 .title {
   font-family: 'Great Vibes', cursive;
   font-size: 70px;
@@ -97,7 +138,13 @@ body {
   color: #ff7bbf;
   letter-spacing: 2px;
 }
-
+.love-note {
+  display: none;
+  margin-top: 30px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: white;
+}
 .message {
   font-size: 1.2rem;
   margin: 1.5rem 0;
