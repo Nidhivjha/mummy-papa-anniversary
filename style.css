@@ -18,13 +18,14 @@ body {
 
   background: linear-gradient(
     135deg,
-    #ffe6f0,
-    #ffd6ec,
-    #f9f3ff
+    #ffe6f2,
+    #ffd1eb,
+    #f9e6ff
   );
 
-  color: var(--text-color);
-  line-height: 1.6;
+  background-attachment: fixed;
+
+  color: #333;
   min-height: 100vh;
   overflow-x: hidden;
 
@@ -52,21 +53,26 @@ body {
 .container {
   max-width: 1100px;
   width: 95%;
-  margin: 60px auto;
-  background: white;
-  border-radius: 25px;
-  padding: 2.5rem;
-  box-shadow: 0 15px 40px rgba(255, 105, 180, 0.2);
+  margin: 70px auto;
+
+  background: rgba(255,255,255,0.95);
+
+  border-radius: 30px;
+  padding: 3rem;
+
+  box-shadow:
+    0 20px 60px rgba(255,105,180,0.25);
+
   text-align: center;
+
+  backdrop-filter: blur(10px);
 }
 .title {
   font-family: 'Dancing Script', cursive;
-  font-size: 3rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 3.5rem;
+  color: #ff4f9a;
+  text-shadow: 0 5px 20px rgba(255,105,180,0.4);
 }
-
 .subtitle {
   font-size: 1.5rem;
   margin-bottom: 2rem;
