@@ -1,4 +1,3 @@
-// Anniversary Website Script ❤️
 document.addEventListener("DOMContentLoaded", function () {
 
     const bgMusic = document.getElementById("bgMusic");
@@ -13,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let images = [];
     let currentIndex = 0;
 
-    /* ================= MUSIC CONTROL ================= */
+    /* ================= MUSIC ================= */
 
     musicToggle.addEventListener("click", () => {
         if (isPlaying) {
@@ -38,85 +37,82 @@ document.addEventListener("DOMContentLoaded", function () {
             musicToggle.textContent = "🔊";
         } catch (e) {}
 
-        
-      // Remove old petals
-const existing = document.querySelector(".petal-container");
-if(existing) existing.remove();
+        // Remove old petals
+        const existing = document.querySelector(".petal-container");
+        if (existing) existing.remove();
 
-const petalContainer = document.createElement("div");
-petalContainer.classList.add("petal-container");
-document.body.appendChild(petalContainer);
+        const petalContainer = document.createElement("div");
+        petalContainer.classList.add("petal-container");
+        document.body.appendChild(petalContainer);
 
-for(let i=0;i<35;i++){
+        for (let i = 0; i < 60; i++) {
 
-    let petal = document.createElement("div");
-    petal.classList.add("petal");
-    petal.innerHTML = "🌸";   // soft pink petal
+            let petal = document.createElement("div");
+            petal.classList.add("petal");
+            petal.innerHTML = "🌸";
 
-    petal.style.left = Math.random()*100 + "%";
-    petal.style.fontSize = (15 + Math.random()*20) + "px";
-    petal.style.animationDuration = (6 + Math.random()*6) + "s";
-    petal.style.animationDelay = Math.random()*5 + "s";
+            petal.style.left = Math.random() * 100 + "%";
+            petal.style.fontSize = (15 + Math.random() * 25) + "px";
+            petal.style.animationDuration = (6 + Math.random() * 6) + "s";
+            petal.style.animationDelay = Math.random() * 5 + "s";
 
-    petalContainer.appendChild(petal);
-}  );
+            petalContainer.appendChild(petal);
+        }
+    });
+
     /* ================= GALLERY FUNCTION ================= */
-loveButton.addEventListener("click", async () => {
-   ...
-});  // ← CLOSE BUTTON HERE
 
-/* ================= GALLERY FUNCTION ================= */
+    window.showGallery = function (type) {
 
-window.showGallery = function (type) {
+        clearInterval(slideshowInterval);
 
-    clearInterval(slideshowInterval);
+        slideshowContainer.style.display = "flex";
 
-    slideshowContainer.style.display = "flex";
+        images = [];
+        currentIndex = 0;
+        imageElement.src = "";
 
-    images = [];
-    currentIndex = 0;
-    imageElement.src = "";
+        for (let i = 1; i <= 30; i++) {
 
-    for (let i = 1; i <= 30; i++) {
+            let path = `assets/photos/${type}/${type} (${i}).jpeg`;
 
-        let path = `assets/photos/${type}/${type} (${i}).jpeg`;
+            let img = new Image();
 
-        let img = new Image();
+            img.onload = function () {
 
-        img.onload = function () {
+                images.push(path);
 
-            images.push(path);
+                if (images.length === 1) {
+                    imageElement.src = path;
+                }
+            };
 
-            if (images.length === 1) {
-                imageElement.src = path;
-            }
-        };
-
-        img.src = path;
-    }
-
-    slideshowInterval = setInterval(() => {
-
-        if (images.length === 0) return;
-
-        currentIndex++;
-
-        if (currentIndex >= images.length) {
-            clearInterval(slideshowInterval);
-            setTimeout(() => {
-                imageElement.src = "";
-            }, 1000);
-            return;
+            img.src = path;
         }
 
-        imageElement.src = images[currentIndex];
+        slideshowInterval = setInterval(() => {
 
-    }, 2000);
+            if (images.length === 0) return;
 
-    document.getElementById("gallerySection")
-        .scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-};
-   
+            currentIndex++;
+
+            if (currentIndex >= images.length) {
+                clearInterval(slideshowInterval);
+                setTimeout(() => {
+                    imageElement.src = "";
+                }, 1000);
+                return;
+            }
+
+            imageElement.src = images[currentIndex];
+
+        }, 2000);
+
+        document.getElementById("gallerySection")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+    };
+
+});
