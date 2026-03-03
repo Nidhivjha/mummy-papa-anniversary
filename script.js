@@ -19,7 +19,6 @@ for(let i=0;i<6;i++){
     const loveButton = document.getElementById("loveButton");
     const loveNote = document.getElementById("loveNote");
     const imageElement = document.getElementById("slideshowImage");
-    document.querySelector(".slideshow-container").style.display = "flex";
     
 
     let isPlaying = false;
@@ -82,23 +81,46 @@ for(let i=0;i<6;i++){
 /* =============================
    PERFECT ONE-TIME SLIDESHOW
 ==============================*/
-    loveButton.addEventListener("click", async () => {
+  loveButton.addEventListener("click", async () => {
 
-  loveNote.classList.toggle("visible");
+    loveNote.classList.toggle("visible");
 
-  try{
-    await bgMusic.play();
-    musicToggle.textContent="🔊";
-    isPlaying=true;
-  }catch(e){
-    console.log("Music blocked");
-  }
+    try{
+        await bgMusic.play();
+        isPlaying = true;
+        musicToggle.textContent="🔊";
+    }catch(e){}
 
-});
+    // Remove old roses if already present
+    const old = document.querySelector(".rose-container");
+    if(old) old.remove();
+
+    // Create new rose container
+    const roseContainer = document.createElement("div");
+    roseContainer.classList.add("rose-container");
+    document.body.appendChild(roseContainer);
+
+    // Generate roses
+    for(let i=0;i<40;i++){
+
+        let rose = document.createElement("div");
+        rose.classList.add("rose");
+        rose.innerHTML="🌹";
+
+        rose.style.left = Math.random()*100 + "%";
+        rose.style.animationDuration = (5 + Math.random()*5) + "s";
+        rose.style.fontSize = (20 + Math.random()*20) + "px";
+        rose.style.animationDelay = Math.random()*5 + "s";
+
+        roseContainer.appendChild(rose);
+    }
+
+}); 
 
 window.showGallery = function(type){
 
     clearInterval(slideshowInterval);
+    document.querySelector(".slideshow-container").style.display = "flex";
 
     images = [];
     currentIndex = 0;
