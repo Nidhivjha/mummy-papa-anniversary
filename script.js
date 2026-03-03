@@ -70,9 +70,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* ================= GALLERY FUNCTION ================= */
 
-    window.showGallery = function (type) {
+    
+    /* ================= VIDEO BUTTONS ================= */
 
-        if (!slideshowContainer || !imageElement) return;
+    videoButtons.forEach(button => {
+        button.addEventListener("click", function(){
+
+            const link = this.getAttribute("data-video");
+            if(!link) return;
+
+            // Pause background music
+            if(bgMusic){
+                bgMusic.pause();
+                musicToggle.textContent = "🎵";
+                isPlaying = false;
+            }
+
+            frame.src = link + "?autoplay=1&rel=0";
+            modal.classList.add("active");
+        });
+    });
+
+    /* ================= CLOSE VIDEO ================= */
+
+    if(closeBtn){
+        closeBtn.addEventListener("click", function(){
+            modal.classList.remove("active");
+            frame.src = "";
+        });
+    }
+    /* ================= GALLERY BUTTONS ================= */
+
+const galleryButtons = document.querySelectorAll(".gallery-btn");
+
+galleryButtons.forEach(button => {
+    button.addEventListener("click", function(){
+
+        const type = this.getAttribute("data-type");
+        if(!type) return;
 
         clearInterval(slideshowInterval);
         slideshowContainer.style.display = "flex";
@@ -120,35 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 behavior: "smooth",
                 block: "start"
             });
-    };
-
-    /* ================= VIDEO BUTTONS ================= */
-
-    videoButtons.forEach(button => {
-        button.addEventListener("click", function(){
-
-            const link = this.getAttribute("data-video");
-            if(!link) return;
-
-            // Pause background music
-            if(bgMusic){
-                bgMusic.pause();
-                musicToggle.textContent = "🎵";
-                isPlaying = false;
-            }
-
-            frame.src = link + "?autoplay=1&rel=0";
-            modal.classList.add("active");
-        });
     });
-
-    /* ================= CLOSE VIDEO ================= */
-
-    if(closeBtn){
-        closeBtn.addEventListener("click", function(){
-            modal.classList.remove("active");
-            frame.src = "";
-        });
-    }
+});
 
 });
