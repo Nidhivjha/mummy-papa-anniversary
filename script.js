@@ -133,8 +133,8 @@ function openVideo(link){
         return;
     }
 
-    frame.src = link + "?autoplay=1&mute=1";
-    modal.style.display = "flex";
+    frame.src = link + "?autoplay=1";
+    modal.classList.add("active");
 }
 
 /* CLOSE BUTTON */
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function(){
             const modal = document.getElementById("videoModal");
             const frame = document.getElementById("videoFrame");
 
-            modal.style.display = "none";
+            modal.classList.remove("active");
             frame.src = "";
         });
     }
