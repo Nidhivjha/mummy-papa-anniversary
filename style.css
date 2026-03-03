@@ -269,8 +269,9 @@ section{
 
 
 /* ================= FULL SCREEN FALLING ROSES ================= */
+/* ================= FALLING PETALS ================= */
 
-.rose-container{
+.petal-container{
   position:fixed;
   top:0;
   left:0;
@@ -281,29 +282,25 @@ section{
   z-index:9999;
 }
 
-.rose{
+.petal{
   position:absolute;
-  top:-50px;   /* start above screen */
-  animation:fallRose linear infinite;
+  top:-50px;
+  font-size:20px;
+  animation:fallPetal linear infinite;
 }
 
-@keyframes fallRose{
+@keyframes fallPetal{
   0%{
     transform:translateY(0) translateX(0) rotate(0deg);
     opacity:1;
   }
-  25%{
-    transform:translateY(25vh) translateX(20px) rotate(90deg);
-  }
   50%{
-    transform:translateY(50vh) translateX(-20px) rotate(180deg);
-  }
-  75%{
-    transform:translateY(75vh) translateX(15px) rotate(270deg);
+    transform:translateY(50vh) translateX(30px) rotate(180deg);
   }
   100%{
-    transform:translateY(110vh) translateX(-15px) rotate(360deg);
-    opacity:0.9;
+    transform:translateY(110vh) translateX(-30px) rotate(360deg);
+    opacity:0.8;
   }
 }
+
 
