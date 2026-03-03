@@ -98,26 +98,27 @@ for(let i=0;i<6;i++){
     if(old) old.remove();
 
     // Create new rose container
-    const roseContainer = document.createElement("div");
-    roseContainer.classList.add("rose-container");
-    document.body.appendChild(roseContainer);
+ // Remove old roses
+const old = document.querySelector(".rose-container");
+if(old) old.remove();
 
-    // Generate roses
-    for(let i=0;i<40;i++){
+const roseContainer = document.createElement("div");
+roseContainer.classList.add("rose-container");
+document.body.appendChild(roseContainer);
 
-        let rose = document.createElement("div");
-        rose.classList.add("rose");
-        rose.innerHTML="🌹";
+for(let i=0;i<60;i++){   // increase count
 
-        rose.style.left = Math.random()*100 + "%";
-        rose.style.animationDuration = (5 + Math.random()*5) + "s";
-        rose.style.fontSize = (20 + Math.random()*20) + "px";
-        rose.style.animationDelay = Math.random()*5 + "s";
+    let rose = document.createElement("div");
+    rose.classList.add("rose");
+    rose.innerHTML="🌹";
 
-        roseContainer.appendChild(rose);
-    }
+    rose.style.left = Math.random()*100 + "%";
+    rose.style.fontSize = (20 + Math.random()*25) + "px";
+    rose.style.animationDuration = (6 + Math.random()*6) + "s";
+    rose.style.animationDelay = Math.random()*5 + "s";
 
-}); 
+    roseContainer.appendChild(rose);
+}
 
 window.showGallery = function(type){
 
