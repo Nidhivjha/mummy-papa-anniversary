@@ -28,14 +28,14 @@ body{
 
 .container{
   width:90%;
-  max-width:1000px;
-  margin:100px auto;
-  padding:60px 40px;
+  max-width:950px;   /* slightly tighter */
+  margin:120px auto;
+  padding:60px 50px;
 
-  background:rgba(0,0,0,0.25);   /* subtle dark overlay */
-  border-radius:25px;
+  background:rgba(0,0,0,0.3);
+  border-radius:30px;
 
-  box-shadow:0 15px 40px rgba(0,0,0,0.5);
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
 
   text-align:center;
 }
