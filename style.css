@@ -117,11 +117,11 @@ section{
     var(--pink)
   );
 
-  padding:22px 80px;
-  border-radius:60px;
+  padding:30px 120px;
+  border-radius:80px;
   border:none;
 
-  font-size:22px;
+  font-size:28px;
   font-weight:600;
 
   color:white;
