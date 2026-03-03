@@ -38,30 +38,28 @@ document.addEventListener("DOMContentLoaded", function () {
             musicToggle.textContent = "🔊";
         } catch (e) {}
 
-        // Remove old roses
-        const existing = document.querySelector(".rose-container");
-        if (existing) existing.remove();
+        
+      // Remove old petals
+const existing = document.querySelector(".petal-container");
+if(existing) existing.remove();
 
-        const roseContainer = document.createElement("div");
-        roseContainer.classList.add("rose-container");
-        document.body.appendChild(roseContainer);
+const petalContainer = document.createElement("div");
+petalContainer.classList.add("petal-container");
+document.body.appendChild(petalContainer);
 
-        for (let i = 0; i < 40; i++) {
+for(let i=0;i<35;i++){
 
-            let rose = document.createElement("div");
-            rose.classList.add("rose");
-            rose.innerHTML = "🌹";
+    let petal = document.createElement("div");
+    petal.classList.add("petal");
+    petal.innerHTML = "🌸";   // soft pink petal
 
-            rose.style.left = Math.random() * 100 + "%";
-            rose.style.fontSize = (20 + Math.random() * 20) + "px";
-            rose.style.animationDuration = (6 + Math.random() * 6) + "s";
-            rose.style.animationDelay = Math.random() * 5 + "s";
+    petal.style.left = Math.random()*100 + "%";
+    petal.style.fontSize = (15 + Math.random()*20) + "px";
+    petal.style.animationDuration = (6 + Math.random()*6) + "s";
+    petal.style.animationDelay = Math.random()*5 + "s";
 
-            roseContainer.appendChild(rose);
-        }
-
-    });
-
+    petalContainer.appendChild(petal);
+}  
     /* ================= GALLERY FUNCTION ================= */
 
     window.showGallery = function (type) {
